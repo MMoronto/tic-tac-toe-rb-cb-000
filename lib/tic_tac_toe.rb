@@ -54,7 +54,6 @@ def turn(board)
   if valid_move?(board, index) && !position_taken?(board, index)
     move(board, index, current_player(board))
     display_board(board)
-    
   else valid_move?(board, index) && !position_taken?(board, index)
     turn(board)
   end  
@@ -99,6 +98,7 @@ def over?(board)
 end
 
 def winner(board)
+  won?(board) || full?(board)
   if winning_combo = won?(board)
     board[winning_combo.first]
   end  
